@@ -31,11 +31,19 @@ const Initial_transactions = [
     amount: 500,
     status: "completed",
   },
+   {
+    id:6,
+    title: "Cash",
+    amount: 500,
+    status: "completed",
+  },
+  
+  
 ];
 
 const Transaction = () => {
   const [state, setState] = useState(Initial_transactions);
-  console.log(state, "state=====");
+  console.log(state, "state=");
   const [data, setData] = useState("completed");
   console.log(data, "data----");
 
