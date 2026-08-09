@@ -25,6 +25,12 @@ const Initial_transactions = [
     amount: 500,
     status: "completed",
   },
+   {
+    id: 5,
+    title: "Cash",
+    amount: 500,
+    status: "completed",
+  },
 ];
 
 const Transaction = () => {
@@ -46,7 +52,7 @@ const Transaction = () => {
       show transactions
       <button onClick={() => setData("pending")}>pending</button>
       <button onClick={() => setData("completed")}>completed</button>
-      <button onClick={() => setData("all")}>all</button>
+      
       <div>
         {displayedTransactions.map((item) => (
           <div key={item.id}>
