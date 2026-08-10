@@ -42,7 +42,6 @@ const Initial_transactions = [
 ];
 const InitialTransaction = () => {
      const [state, setState] = useState(Initial_transactions);
-      console.log(state, "state=");
       const [data, setData] = useState("completed");
       console.log(data, "data----");
     
