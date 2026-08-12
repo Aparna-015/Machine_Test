@@ -58,7 +58,17 @@ const Transaction = () => {
   useEffect(()=>{
  function orderfood(callback) {
     setTimeout(() => {
-      callback("pizza");
+      callback("food is ready");
+    }, 2000);
+  }
+  orderfood((FD)=>{
+    console.log("it is "+FD);
+  });
+  },[])
+    useEffect(()=>{
+ function orderfood(callback) {
+    setTimeout(() => {
+      callback("food is ready");
     }, 2000);
   }
   orderfood((FD)=>{
