@@ -107,48 +107,42 @@ function UserProfile() {
   const [error, setError] = useState(null);
 
   // 2. Define the async API fetch function
-  // const fetchUserData = async () => {
-  //   try {
-  //     setLoading(true); // Reset state to Pending
-  //     setError(null);
+  const fetchUserData = async () => {
+    try {
+      setLoading(true); // Reset state to Pending
+      setError(null);
 
-  //     // PENDING: Network request starts
-  //     const response = await fetch("https://jsonplaceholder.typicode.com/users");
+      // PENDING: Network request starts
+      const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
-  //     if (!response.ok) {
-  //       throw new Error("Failed to fetch user data!");
-  //     }
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data!");
+      }
 
-  //     // FULFILLED: Parse data and update state
-  //     const data = await response.json();
-  //     console.log(data,"-----");
+      // FULFILLED: Parse data and update state
+      const data = await response.json();
+      console.log(data,"-----");
       
-  //     setUser(data);
+      setUser(data);
 
-  //   } catch (err) {
-  //     // REJECTED: Catch error and save to state
-  //     setError(err.message);
+    } catch (err) {
+      // REJECTED: Catch error and save to state
+      setError(err.message);
 
-  //   } finally {
-  //     // Runs regardless of success or failure to stop loading indicator
-  //     setLoading(false);
-  //   }
-  // };
+    } finally {
+      // Runs regardless of success or failure to stop loading indicator
+      setLoading(false);
+    }
+  };
 
-  const fetchdata=async()=>{
+  // const fetchdata=()=>{
 
-    const response=await fetch("https://jsonplaceholder.typicode.com/users");
-    console.log(response,"logg");
+  //   const response=fetch("https://jsonplaceholder.typicode.com/users");
+  //   console.log(response,"response====");
     
-    const data= await response.json();
-    console.log(data,"data====");
 
-  }
+  // }
   
-
-  useEffect(()=>{
-fetchdata();
-  },[])
 
 
   // 3. Trigger the API call when the component loads
@@ -157,18 +151,18 @@ fetchdata();
   // }, []);
 
   // 4. Render UI based on Promise State
-  // if (loading) return <h2>⏳ Loading user profile... (Promise Pending)</h2>;
-  // if (error) return <h2 style={{ color: "red" }}>❌ Error: {error} (Promise Rejected)</h2>;
+   if (loading) return <h2>⏳ Loading user profile... (Promise Pending)</h2>;
+   if (error) return <h2 style={{ color: "red" }}>❌ Error: {error} (Promise Rejected)</h2>;
 
   return (
     <div style={{ padding: "20px", border: "1px solid #ccc", borderRadius: "8px" }}>
-      {/* <h2>✅ User Details (Promise Fulfilled)</h2>
+       <h2>✅ User Details (Promise Fulfilled)</h2>
       <p><strong>Name:</strong> {user.name}</p>
       <p><strong>Email:</strong> {user.email}</p>
       <p><strong>City:</strong> {user.address.city}</p>
-       */}
-      {/* Button to re-trigger the Promise */}
-      {/* <button onClick={fetchUserData}>Reload User</button> */}
+       
+      Button to re-trigger the Promise
+      <button onClick={fetchUserData}>Reload User</button>
     </div>
   );
 }
