@@ -105,6 +105,7 @@ function UserProfile() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+console.log(user, loading, error);
 
   // 2. Define the async API fetch function
   const fetchUserData = async () => {
@@ -112,7 +113,6 @@ function UserProfile() {
       setLoading(true); // Reset state to Pending
       setError(null);
 
-      // PENDING: Network request starts
       const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
       if (!response.ok) {
@@ -121,7 +121,7 @@ function UserProfile() {
 
       // FULFILLED: Parse data and update state
       const data = await response.json();
-      console.log(data,"-----");
+      
       
       setUser(data);
 
