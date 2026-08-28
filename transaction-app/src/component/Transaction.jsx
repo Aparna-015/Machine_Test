@@ -120,12 +120,12 @@ function UserProfile() {
 
       // FULFILLED: Parse data and update state
       const data = await response.json();
-      console.log(data,"-----");
+      console.log(data,"----====-");
       
       setUser(data);
 
     } catch (err) {
-      // REJECTED: Catch error and save to state
+      // REJECTED: Catch error and sve to state
       setError(err.message);
 
     } finally {
@@ -144,13 +144,10 @@ function UserProfile() {
   
 
 
-  // 3. Trigger the API call when the component loads
-  // useEffect(() => {
-  //   fetchUserData();
-  // }, []);
+
 
   // 4. Render UI based on Promise State
-   if (loading) return <h2>⏳ Loading user profile... (Promise Pending)</h2>;
+   if (loading) return <h2>Loading user profile...... (Promise Pending)</h2>;
    if (error) return <h2 style={{ color: "red" }}>❌ Error: {error} (Promise Rejected)</h2>;
 
   return (
